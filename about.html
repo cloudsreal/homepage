@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Yujin</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon and manifest -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="hero">
-    <div class="hero-image"></div>
+    <div class="hero-image" style="background-image: url('images/head2.jpg');"></div>
 
-    <!-- 🌿 顶部标题 + 导航 -->
     <div class="container">
+      <!-- Header and navigation -->
       <div class="header-row">
         <h2>About Me</h2>
         <nav class="inline-navbar">
@@ -24,31 +32,38 @@
         </nav>
       </div>
 
+      <!-- Education section -->
       <div class="content-section">
         <h3>Education</h3>
+
         <div class="education-item">
-          <p><strong>2025 - Present</strong><br>
+          <p><strong>2024 - Present</strong><br>
           Ph.D. in Software Engineering, University of California, Irvine<br>
+          Advisor: <a href="https://dayenam.com/" target="_blank">Prof. Daye Nam</a></p>
         </div>
 
         <div class="education-item">
           <p><strong>2021 - 2025</strong><br>
           B.S. in Software Engineering, Nanjing University<br>
-          I was fortunate to be advised by <a href="https://z-zhiqiang.github.io/">Dr. Zhiqiang Zuo</a> and <a href="https://www.haojianj.in/">Dr. Haojian Jin</a> on several topics across computer science.
-
-        </p>
+          I was fortunate to be advised by 
+          <a href="https://z-zhiqiang.github.io/" target="_blank">Dr. Zhiqiang Zuo</a> and 
+          <a href="https://www.haojianj.in/" target="_blank">Dr. Haojian Jin</a> 
+          on several topics across computer science.</p>
         </div>
 
-        <h3>Something to share...</h3>
+        <!-- Interests -->
+        <h3>Interests</h3>
         <p>
-            I love photograph and I hope to film my life. I'm also learning hiphop dancing now!
+          I’m broadly interested in software engineering, artificial intelligence, and human-computer interaction.
+          Outside research, I enjoy photography, film, and hip-hop dancing.
         </p>
       </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
-      <p>Photo by <a href="https://wenjiema.com/">Wenjie Ma</a></p>
-      <p>© Copyright 2025 Yujin Zhang.</p>
+      <!-- <p>Homepage Photo by <a href="https://wenjiema.com/">Wenjie Ma</a></p> -->
+      <p>© 2025 Yujin Zhang</p>
     </footer>
   </div>
 </body>
