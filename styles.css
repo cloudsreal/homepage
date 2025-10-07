@@ -408,3 +408,100 @@ a:hover {
     font-weight: 400;
   }
   
+
+  /* ===== Responsive design for mobile ===== */
+@media (max-width: 768px) {
+  /* Make layout single-column */
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Shrink avatar and adjust margin */
+  .profile-photo-container {
+    margin-bottom: 20px;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Adjust header alignment */
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .inline-navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .inline-navbar a {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust paragraph width and spacing */
+  .content-section {
+    padding: 0 10px;
+    text-align: left;
+  }
+
+  /* Reduce padding on footer */
+  .footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Hero image height fix */
+  .hero-image {
+    background-size: cover;
+    background-position: center;
+    height: 160px;
+  }
+}
+
+/* ===== Full-width layout fix for mobile ===== */
+@media (max-width: 768px) {
+    /* Remove default body padding */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+  
+    /* Make the hero and main container fill the screen width */
+    .hero,
+    .hero-image,
+    .container,
+    .profile-section,
+    .footer {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  
+    /* Adjust main content padding to avoid touching edges */
+    .container {
+      padding: 0; /* small padding for readability */
+    }
+  
+    /* Make image full width if needed */
+    .profile-photo {
+      max-width: 80%;
+      height: auto;
+    }
+  
+    /* Center text and remove extra indentation */
+    .content-section, .profile-right {
+      text-align: left;
+      padding: 0;
+    }
+  }
+  
