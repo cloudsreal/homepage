@@ -145,8 +145,10 @@ p {
     font-family: 'Noto Serif', serif;
     font-size: 0.95em;
     color: #34495e;
-    /* margin: 30px 0 15px; */
+    text-align: justify;
+    text-justify: inter-word;
 }
+
 
 .intro-text {
     margin-bottom: 40px;
@@ -193,12 +195,15 @@ p {
     margin-top: 0;
 }
 
+
 .content-section p {
     font-family: 'Noto Serif', sans-serif;
     margin-bottom: 20px;
     color: #555;
     font-size: 0.95em;
     line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .research-item {
@@ -465,43 +470,147 @@ a:hover {
   }
 }
 
-/* ===== Full-width layout fix for mobile ===== */
+/* ===== FORCE full-width mobile layout + safe-area handling =====
+   Paste this at the very end of styles.css so it overrides earlier rules.
+*/
 @media (max-width: 768px) {
-    /* Remove default body padding */
-    body {
+    /* ensure html/body occupy full height and remove any default margins */
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      background-color: #f5f5f5; /* keep your page bg */
+      overflow-x: hidden; /* avoid horizontal scroll */
     }
   
-    /* Make the hero and main container fill the screen width */
-    .hero,
-    .hero-image,
-    .container,
-    .profile-section,
-    .footer {
-      width: 100%;
-      max-width: 100%;
+    /* Make hero and container full width (override desktop 65% width) */
+    .hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent;
+      border-radius: 0 !important;
+    }
+  
+    /* hero image should fill full width and keep height reasonable */
+    .hero-image {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 140px !important;
       margin: 0;
-      padding-left: 0;
-      padding-right: 0;
+      background-size: cover !important;
+      background-position: center !important;
+      border-radius: 0 !important;
     }
   
-    /* Adjust main content padding to avoid touching edges */
+    /* container becomes edge-to-edge, but keep small inner padding for readability */
     .container {
-      padding: 0; /* small padding for readability */
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      padding: 16px !important; /* adjust as desired */
+      background: #fff;
+      border-radius: 0 !important;
+      box-shadow: none !important;
     }
   
-    /* Make image full width if needed */
-    .profile-photo {
-      max-width: 80%;
-      height: auto;
-    }
-  
-    /* Center text and remove extra indentation */
-    .content-section, .profile-right {
-      text-align: left;
+    /* header / navbar stacked and centered */
+    .header-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.6rem;
+      margin: 10px 0 18px 0 !important;
       padding: 0;
+    }
+  
+    .header-row h2 {
+      width: 100%;
+      text-align: left;          /* left or center as you prefer */
+      padding-left: 4px;
+      font-size: 2rem;
+      margin: 0;
+    }
+  
+    /* Put navbar below hero/title and center it */
+    .inline-navbar {
+      width: 100%;
+      display: flex !important;
+      justify-content: center !important;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 6px 0;
+      margin: 0 auto 8px auto !important;
+    }
+  
+    .inline-navbar a {
+      font-size: 0.98rem;
+      padding: 6px 8px;
+    }
+  
+    /* Profile area stacks vertically */
+    .profile-section {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 18px !important;
+      padding-top: 10px !important;
+    }
+  
+    .profile-left, .profile-right {
+      width: 100% !important;
+    }
+  
+    /* avatar smaller and centered */
+    .profile-photo-container {
+      width: 180px !important;
+      height: 180px !important;
+      margin: 0 auto 8px auto !important;
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    /* make social links full width center-aligned */
+    .social-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .social-links a {
+      width: auto;
+      justify-content: center;
+      padding-left: 0;
+    }
+  
+    /* content paragraphs: readable padding and justify */
+    .content-section, .content-section p {
+      padding: 0 4px !important;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.7;
+    }
+  
+    /* footer full-width and compact */
+    .footer {
+      width: 100% !important;
+      padding: 12px 8px !important;
+      margin-top: 18px !important;
+    }
+  
+    /* handle iPhone safe-area insets (optional, makes content not touch rounded corners) */
+    .container, .hero-image, .footer {
+      padding-left: max(16px, env(safe-area-inset-left)) !important;
+      padding-right: max(16px, env(safe-area-inset-right)) !important;
     }
   }
   
