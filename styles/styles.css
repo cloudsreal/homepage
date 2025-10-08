@@ -110,6 +110,31 @@ body {
     flex: 1;
 }
 
+/* Header and Navigation */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.inline-navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.inline-navbar a {
+    font-family: 'Noto Serif', sans-serif;
+    font-size: 1em;
+    color: #34495e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+}
+
+.inline-navbar a:hover {
+    color: #057777;
+}
 
 .container h2 {
     font-family: 'Noto Serif', serif;
