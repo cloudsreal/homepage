@@ -43,7 +43,7 @@ body {
 
 /* Profile Section */
 .profile-section {
-    padding-top: 60px;
+    padding-top: 20px;
     display: flex;
     gap: 60px;
     margin-top: 0;
@@ -311,6 +311,49 @@ p {
     }
 }
 
+/* Header row styles */
+.header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0 10px 0;
+}
+
+.header-row h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* Navigation bar styles */
+.inline-navbar {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 0;
+}
+
+.inline-navbar a {
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.inline-navbar a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Active navigation link styles */
+.inline-navbar a.active {
+    color: #057777;
+    background-color: rgba(5, 119, 119, 0.1);
+    font-weight: 500;
+}
+
+.inline-navbar a:not(.active) {
+    color: #999;
+}
+
 /* 设置默认链接颜色 */
 a {
     color: #057777; /* 这里可以使用你喜欢的颜色 */
@@ -393,8 +436,8 @@ a:hover {
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 0.6rem;
-      margin: 10px 0 18px 0 !important;
+      gap: 0.5rem;
+      margin: 5px 0 10px 0 !important;
       padding: 0;
     }
   
@@ -427,8 +470,8 @@ a:hover {
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      gap: 18px !important;
-      padding-top: 10px !important;
+      gap: 15px !important;
+      padding-top: 5px !important;
     }
   
     .profile-left, .profile-right {
