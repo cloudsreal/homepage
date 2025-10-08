@@ -528,3 +528,51 @@ a:hover {
     }
   }
   
+
+/* ===== Papers Section ===== */
+.papers-section {
+    margin-top: 2rem;
+  }
+  
+  .papers-section h3 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    color: #2d3e50;
+    /* margin-bottom: 1rem; */
+    border-bottom: 1px solid #ddd;
+    /* padding-bottom: 0.4rem; */
+  }
+  
+  .paper {
+    margin-bottom: 1.5rem;
+  }
+  
+  .paper-title {
+    font-size: 1rem;
+    /* margin-bottom: 0.3rem; */
+    color: #222;
+  }
+  
+  .paper-authors {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 0;
+  }
+  
+  .paper-venue {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.2rem 0;
+  }
+  
+  .paper-links a {
+    font-size: 0.9rem;
+    color: #0077b6;
+    text-decoration: none;
+    margin-right: 0.6rem;
+  }
+  
+  .paper-links a:hover {
+    text-decoration: underline;
+  }
+  
