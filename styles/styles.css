@@ -145,8 +145,9 @@ p {
     font-family: 'Noto Serif', serif;
     font-size: 0.95em;
     color: #34495e;
-    /* margin: 30px 0 15px; */
+    text-justify: inter-word;
 }
+
 
 .intro-text {
     margin-bottom: 40px;
@@ -193,12 +194,14 @@ p {
     margin-top: 0;
 }
 
+
 .content-section p {
     font-family: 'Noto Serif', sans-serif;
     margin-bottom: 20px;
     color: #555;
     font-size: 0.95em;
     line-height: 1.6;
+    text-justify: inter-word;
 }
 
 .research-item {
@@ -338,58 +341,147 @@ a:hover {
     }
 }
 
-/* ===== 顶部行内导航栏（在 “Hi, this is Yujin!” 右侧） ===== */
-.header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.inline-navbar {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.inline-navbar a {
-    color: #34495e;
-    text-decoration: none;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-}
-
-.inline-navbar a:hover {
-    color: #057777; /* 悬停时变绿，与head2.jpg协调 */
-}
-
-
-/* ===== News Section Formatting ===== */
-.news-list p {
-    margin-bottom: 8px;
-    font-family: 'Noto Serif', sans-serif;
-    color: #34495e;
-    font-size: 0.95em;
-    line-height: 1.6;
-  }
+/* ===== FORCE full-width mobile layout + safe-area handling =====
+   Paste this at the very end of styles.css so it overrides earlier rules.
+*/
+@media (max-width: 768px) {
+    /* ensure html/body occupy full height and remove any default margins */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      background-color: #f5f5f5; /* keep your page bg */
+      overflow-x: hidden; /* avoid horizontal scroll */
+    }
   
-  .news-list strong {
-    color: #057777;
-    font-weight: 400;
-  }
-
-  .education-item {
-    margin-bottom: 20px;
-    padding-left: 15px;
-    border-left: 3px solid #eee;
-  }
+    /* Make hero and container full width (override desktop 65% width) */
+    .hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent;
+      border-radius: 0 !important;
+    }
   
-  .education-item p {
-    margin: 0;
-    color: #34495e;
-    font-family: 'Noto Serif', sans-serif;
-    font-size: 0.95em;
-    line-height: 1.6;
+    /* hero image should fill full width and keep height reasonable */
+    .hero-image {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 140px !important;
+      margin: 0;
+      background-size: cover !important;
+      background-position: center !important;
+      border-radius: 0 !important;
+    }
+  
+    /* container becomes edge-to-edge, but keep small inner padding for readability */
+    .container {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      padding: 16px !important; /* adjust as desired */
+      background: #fff;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+  
+    /* header / navbar stacked and centered */
+    .header-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.6rem;
+      margin: 10px 0 18px 0 !important;
+      padding: 0;
+    }
+  
+    .header-row h2 {
+      width: 100%;
+      text-align: left;          /* left or center as you prefer */
+      padding-left: 4px;
+      font-size: 2rem;
+      margin: 0;
+    }
+  
+    /* Put navbar below hero/title and center it */
+    .inline-navbar {
+      width: 100%;
+      display: flex !important;
+      justify-content: center !important;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 6px 0;
+      margin: 0 auto 8px auto !important;
+    }
+  
+    .inline-navbar a {
+      font-size: 0.98rem;
+      padding: 6px 8px;
+    }
+  
+    /* Profile area stacks vertically */
+    .profile-section {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 18px !important;
+      padding-top: 10px !important;
+    }
+  
+    .profile-left, .profile-right {
+      width: 100% !important;
+    }
+  
+    /* avatar smaller and centered */
+    .profile-photo-container {
+      width: 180px !important;
+      height: 180px !important;
+      margin: 0 auto 8px auto !important;
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    /* make social links full width center-aligned */
+    .social-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .social-links a {
+      width: auto;
+      justify-content: center;
+      padding-left: 0;
+    }
+  
+    /* content paragraphs: readable padding and justify */
+    .content-section, .content-section p {
+      padding: 0 4px !important;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.7;
+    }
+  
+    /* footer full-width and compact */
+    .footer {
+      width: 100% !important;
+      padding: 12px 8px !important;
+      margin-top: 18px !important;
+    }
+  
+    /* handle iPhone safe-area insets (optional, makes content not touch rounded corners) */
+    .container, .hero-image, .footer {
+      padding-left: max(16px, env(safe-area-inset-left)) !important;
+      padding-right: max(16px, env(safe-area-inset-right)) !important;
+    }
   }
   
