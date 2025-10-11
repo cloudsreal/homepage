@@ -24,12 +24,97 @@ body {
     margin: 0 auto;
 }
 
+
+/* ===== Refined Sticky Header Layout ===== */
+
+/* 顶部横幅图片：稍微变窄并固定在顶部 */
 .hero-image {
-    width: 100%;
-    height: 100px;
-    background: url('head2.jpg') no-repeat center center;
-    background-size: cover;
+  width: 100%;
+  height: 100px;
+  background: url('images/head2.jpg') no-repeat center center;
+  background-size: cover;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
+
+/* 顶部标题+导航栏，宽度与正文一致 */
+.header-row {
+  position: sticky;
+  top: 100px; /* 紧贴上方图片 */
+  z-index: 9;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 100%;         /* 与 .hero 宽度一致 */
+  margin: 0 auto;     /* 居中对齐 */
+  padding: 0px 0 6px 0;
+
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid #eee;
+}
+
+/* 标题左对齐 */
+.header-row h2 {
+  margin: 0;
+  font-family: 'Noto Serif', serif;
+  font-size: 1.6em;
+  color: #34495e;
+  text-align: left;
+}
+
+/* 导航栏靠右 */
+.inline-navbar {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 2px; /* 缩小与底线距离 */
+}
+
+.inline-navbar a {
+  font-size: 1rem;
+  color: #666;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.inline-navbar a:hover {
+  color: #057777;
+  background-color: rgba(5, 119, 119, 0.1);
+}
+
+.inline-navbar a.active {
+  color: #057777;
+  font-weight: 500;
+  background-color: rgba(5, 119, 119, 0.08);
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+    top: 90px;
+    padding: 6px 20px;
+  }
+
+  .inline-navbar {
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .inline-navbar a {
+    font-size: 0.95rem;
+  }
+}
+
+
 
 .container {
     width: 100%;
@@ -51,6 +136,7 @@ body {
 
 .profile-left {
     flex: 0 0 200px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -168,13 +254,16 @@ p {
     margin-bottom: 30px;
 }
 
+.content-section {
+    padding-top: 20px;
+}
 .content-section h2 {
     font-family: 'Noto Serif', serif;
     font-size: 1.8em;
     color: #34495e;
     margin: 40px 0 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .content-section h2:first-child {
@@ -186,8 +275,9 @@ p {
     font-size: 1.2em;
     color: #34495e;
     margin: 40px 0 20px;
+    /* padding-top: 20px; */
     padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .content-section h3:first-child {
@@ -325,48 +415,6 @@ p {
     }
 }
 
-/* Header row styles */
-.header-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 0 10px 0;
-}
-
-.header-row h2 {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-/* Navigation bar styles */
-.inline-navbar {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin: 0;
-}
-
-.inline-navbar a {
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.inline-navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Active navigation link styles */
-.inline-navbar a.active {
-    color: #057777;
-    background-color: rgba(5, 119, 119, 0.1);
-    font-weight: 500;
-}
-
-.inline-navbar a:not(.active) {
-    color: #999;
-}
 
 /* 设置默认链接颜色 */
 a {
@@ -553,7 +601,7 @@ a:hover {
     font-weight: 700;
     color: #2d3e50;
     /* margin-bottom: 1rem; */
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #eee
     /* padding-bottom: 0.4rem; */
   }
   
